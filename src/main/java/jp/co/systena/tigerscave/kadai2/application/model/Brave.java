@@ -1,29 +1,19 @@
 package jp.co.systena.tigerscave.kadai2.application.model;
 
 public class Brave extends Work {
-  private String attack;
-  private String heal;
+  private String action;
 
   @Override
-  public void  actionAttack() {
-     attack = super.getName() + "は剣で攻撃した！";
+  public void  setActionAttack() {
+     action = super.getName() + "は剣で攻撃した！";
   }
   @Override
-  public void actionHeal() {
-    heal = super.getName() + "はやくそうで回復した！";
+  public void setActionHeal() {
+    action = super.getName() + "はやくそうで回復した！";
   }
 
-  public String getAttack() {
-    return attack;
- }
- public void setAttack(String attack) {
-   this.attack = attack;
- }
+  public String getAction() {
+     return action;
+  }
 
- public String getHeal() {
-   return heal;
- }
- public void setHeal(String heal) {
-   this.heal = heal;
- }
 }

@@ -12,7 +12,7 @@ public abstract class Work {
       this.name = name;
   }
 
-  public abstract void actionAttack();
-  public abstract void actionHeal();
+  public abstract void setActionAttack();
+  public abstract void setActionHeal();
 
 }

@@ -5,15 +5,25 @@
 		<title>キャラクター選択</title>
 	</head>
 	<body>
-		<form method="post" action="Cmd" th:object="${CharaObj}">
+		<form action="/Cmd" method="post" th:object="${CharaObj}">
 			<p>選択してください<br>
+			<p>[1人目]<br>
 			<span>職業：</span>
-			<input type="radio" name="work" value="戦士"> 戦士
-			<input type="radio" name="work" value="魔法使い"> 魔法使い
-			<input type="radio" name="work" value="武闘家"> 武闘家
+			<input type="radio" name="work1" value="戦士"> 戦士
+			<input type="radio" name="work1" value="魔法使い"> 魔法使い
+			<input type="radio" name="work1" value="武闘家"> 武闘家
 			<br>
 			<span>名前：</span>
-			<input type="text" name="name" value="">
+			<input type="text" name="name1" value="">
+
+			<p>[2人目]<br>
+			<span>職業：</span>
+			<input type="radio" name="work2" value="戦士"> 戦士
+			<input type="radio" name="work2" value="魔法使い"> 魔法使い
+			<input type="radio" name="work2" value="武闘家"> 武闘家
+			<br>
+			<span>名前：</span>
+			<input type="text" name="name2" value="">
 
 			<p><input type="submit" value="次へ"></p>
 

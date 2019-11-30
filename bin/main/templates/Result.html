@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>結果画面</title>
-
-</head>
-<body>
-	<div th:if="${flg == 'flgAttack'}">
-		<p class="work" th:text="${workObj.getAttack()}" ></p>
-	</div>
-	<div th:if="${flg == 'flgHeal'}">
-		<p class="work" th:text="${workObj.getHeal()}"></p>
-	</div>
-</body>
-
+	<head>
+		<meta charset="UTF-8">
+		<title>結果画面</title>
+	</head>
+	<body>
+		<p class="work1" th:text="${workObj1.getAction()}" ></p>
+		<p class="work2" th:text="${workObj2.getAction()}" ></p>
+	</body>
 </html>

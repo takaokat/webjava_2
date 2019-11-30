@@ -5,20 +5,38 @@
 		<title>コマンド画面</title>
 	</head>
 	<body>
-		<form action="/Result" method="post">
+		<form action="/Result" method="post" th:object="${CmdObj}">
+			<p>行動を選択してください<br>
+			<p>[1人目]<br>
 			<div>
 				<span>職業：</span>
-				<span class="work" th:text="${cmdform.work}"></span>
+				<span class="work1" th:text="${cmdform.getWork1()}"></span>
 			</div>
 			<div>
 				<span>名前：</span>
-				<span class="work" th:text="${cmdform.name}"></span>
+				<span class="work1" th:text="${cmdform.getName1()}"></span>
+				<br>
+				<br>
+				<input type="radio" name="cmd1" value="たたかう"> たたかう
+				<input type="radio" name="cmd1" value="かいふく"> かいふく
+			</div>
+				<br>
+			<p>[2人目]<br>
+			<div>
+				<span>職業：</span>
+				<span class="work2" th:text="${cmdform.getWork2()}"></span>
 			</div>
 			<div>
-				<input type="submit" name="cmdAttack" value="たたかう">
+				<span>名前：</span>
+				<span class="work2" th:text="${cmdform.getName2()}"></span>
 				<br>
-				<input type="submit" name="cmdHeal" value="かいふく">
+				<br>
+				<input type="radio" name="cmd2" value="たたかう"> たたかう
+				<input type="radio" name="cmd2" value="かいふく"> かいふく
 			</div>
+
+			<p><input type="submit" value="次へ"></p>
+
 		</form>
 	</body>
 </html>
