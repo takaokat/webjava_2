@@ -32,7 +32,7 @@ public class SelectCharacterController {
 	@RequestMapping(value = "/Cmd", method = RequestMethod.POST) // URLとのマッピング
 	public ModelAndView cmd(ModelAndView mav,@ModelAttribute Charaform form) {
 
-		Work work = (Work) session.getAttribute("WorkObj");
+		Work work = (Work) session.getAttribute("workObj");
 
 		if(form.getWork().equals("戦士")) {
 		  work = new Brave();
@@ -42,7 +42,7 @@ public class SelectCharacterController {
 		  work = new Warrior();
 		}
 		work.setName(form.getName());
-		session.setAttribute("WorkObj", work);
+		session.setAttribute("workObj", work);
 
 		mav.setViewName("Cmd");
 		mav.addObject("cmdform",form);
@@ -50,14 +50,27 @@ public class SelectCharacterController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/Result", method = RequestMethod.GET) // URLとのマッピング
-	public ModelAndView res(ModelAndView mav) {
+    @RequestMapping(value = "/Result", params = "cmdAttack", method = RequestMethod.POST) // URLとのマッピング
+    public ModelAndView resAttack(ModelAndView mav) {
 
-		Work work = (Work) session.getAttribute("WorkObj");
-		work.fight();
-		mav.addObject("WorkObj",work);
+		Work work = (Work) session.getAttribute("workObj");
+		work.actionAttack();
+		mav.addObject("workObj",work);
 		mav.setViewName("Result");
+		mav.addObject("flg","flgAttack");
 
 		return mav;
+    }
+
+    @RequestMapping(value = "/Result", params = "cmdHeal", method = RequestMethod.POST) // URLとのマッピング
+    public ModelAndView resHeal(ModelAndView mav) {
+
+      Work work = (Work) session.getAttribute("workObj");
+      work.actionHeal();
+      mav.addObject("workObj",work);
+      mav.setViewName("Result");
+      mav.addObject("flg","flgHeal");
+
+      return mav;
 	}
 }

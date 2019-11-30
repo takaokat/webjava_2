@@ -3,9 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>結果画面</title>
-<p class="work" th:text="${WorkObj.attack}"></p>
+
 </head>
 <body>
-
+	<div th:if="${flg == 'flgAttack'}">
+		<p class="work" th:text="${workObj.getAttack()}" ></p>
+	</div>
+	<div th:if="${flg == 'flgHeal'}">
+		<p class="work" th:text="${workObj.getHeal()}"></p>
+	</div>
 </body>
+
 </html>

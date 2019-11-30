@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>キャラクター選択</title>
-</head>
-<body>
-<form method="post" action="Cmd" th:object="${CharaObj}">
-<p>選択してください<br>
-<span>職業：</span>
-<input type="radio" name="work" value="戦士"> 戦士
-<input type="radio" name="work" value="魔法使い"> 魔法使い
-<input type="radio" name="work" value="武闘家"> 武闘家
-<br>
-<span>名前：</span>
-<input type="text" name="name" value="">
+	<head>
+		<meta charset="UTF-8">
+		<title>キャラクター選択</title>
+	</head>
+	<body>
+		<form method="post" action="Cmd" th:object="${CharaObj}">
+			<p>選択してください<br>
+			<span>職業：</span>
+			<input type="radio" name="work" value="戦士"> 戦士
+			<input type="radio" name="work" value="魔法使い"> 魔法使い
+			<input type="radio" name="work" value="武闘家"> 武闘家
+			<br>
+			<span>名前：</span>
+			<input type="text" name="name" value="">
 
+			<p><input type="submit" value="次へ"></p>
 
-<p><input type="submit" value="次へ"></p>
+		</form>
 
-</form>
-
-</body>
+	</body>
 </html>

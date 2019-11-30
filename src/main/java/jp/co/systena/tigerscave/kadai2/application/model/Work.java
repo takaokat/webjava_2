@@ -4,9 +4,7 @@ public abstract class Work {
 
   private String name;
 
-  public abstract void fight();
-
-  public String getName() {
+   public String getName() {
       return name;
   }
 
@@ -14,5 +12,7 @@ public abstract class Work {
       this.name = name;
   }
 
+  public abstract void actionAttack();
+  public abstract void actionHeal();
 
 }
