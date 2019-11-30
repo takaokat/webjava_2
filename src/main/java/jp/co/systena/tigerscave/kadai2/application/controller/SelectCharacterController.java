@@ -24,7 +24,7 @@ public class SelectCharacterController {
 	public ModelAndView sel(ModelAndView mav) {
 
 		mav.setViewName("SelectCharacter");
-		mav.addObject("ohage",new Charaform());
+		mav.addObject("CharaObj",new Charaform());
 
 		return mav;
 	}
@@ -32,9 +32,9 @@ public class SelectCharacterController {
 	@RequestMapping(value = "/Cmd", method = RequestMethod.POST) // URLとのマッピング
 	public ModelAndView cmd(ModelAndView mav,@ModelAttribute Charaform form) {
 
-		Work work = (Work) session.getAttribute("okabe");
+		Work work = (Work) session.getAttribute("WorkObj");
 
-		if(form.getWork().equals("勇者")) {
+		if(form.getWork().equals("戦士")) {
 		  work = new Brave();
 		}else if(form.getWork().equals("魔法使い")){
 		  work = new Witch();
@@ -42,7 +42,7 @@ public class SelectCharacterController {
 		  work = new Warrior();
 		}
 		work.setName(form.getName());
-		session.setAttribute("okabe", work);
+		session.setAttribute("WorkObj", work);
 
 		mav.setViewName("Cmd");
 		mav.addObject("cmdform",form);
@@ -53,9 +53,9 @@ public class SelectCharacterController {
 	@RequestMapping(value = "/Result", method = RequestMethod.GET) // URLとのマッピング
 	public ModelAndView res(ModelAndView mav) {
 
-		Work work = (Work) session.getAttribute("okabe");
+		Work work = (Work) session.getAttribute("WorkObj");
 		work.fight();
-		mav.addObject("okabe",work);
+		mav.addObject("WorkObj",work);
 		mav.setViewName("Result");
 
 		return mav;

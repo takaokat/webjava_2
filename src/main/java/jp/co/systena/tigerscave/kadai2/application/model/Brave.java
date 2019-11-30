@@ -7,7 +7,6 @@ public class Brave extends Work {
       attack= super.getName()+"は剣で攻撃した！";
 
   }
-
   public String getAttack() {
       return attack;
   }
