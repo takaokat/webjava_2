@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import jp.co.systena.tigerscave.kadai2.application.model.Brave;
 import jp.co.systena.tigerscave.kadai2.application.model.Charaform;
+import jp.co.systena.tigerscave.kadai2.application.model.Warrior;
 import jp.co.systena.tigerscave.kadai2.application.model.Witch;
 import jp.co.systena.tigerscave.kadai2.application.model.Work;
 
@@ -27,18 +28,18 @@ public class SelectCharacterController {
 
 		return mav;
 	}
+
 	@RequestMapping(value = "/Cmd", method = RequestMethod.POST) // URLとのマッピング
 	public ModelAndView cmd(ModelAndView mav,@ModelAttribute Charaform form) {
 
 		Work work = (Work) session.getAttribute("okabe");
 
 		if(form.getWork().equals("勇者")) {
-
-			work = new Brave();
-
-
+		  work = new Brave();
 		}else if(form.getWork().equals("魔法使い")){
-			work = new Witch();
+		  work = new Witch();
+		}else if(form.getWork().equals("武闘家")){
+		  work = new Warrior();
 		}
 		work.setName(form.getName());
 		session.setAttribute("okabe", work);
@@ -48,6 +49,7 @@ public class SelectCharacterController {
 
 		return mav;
 	}
+
 	@RequestMapping(value = "/Result", method = RequestMethod.GET) // URLとのマッピング
 	public ModelAndView res(ModelAndView mav) {
 
